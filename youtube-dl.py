@@ -35,8 +35,6 @@ def main():
                 'ext': f['ext'],
             }
 
-    print(f)
-
     # return dicts back to shortcuts
     if sys.argv[-1].startswith('shortcuts-production://'):
         url = sys.argv[-1].replace('shortcuts-production', 'shortcuts')
