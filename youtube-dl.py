@@ -18,7 +18,7 @@ def main():
             filesize = f' - {f["filesize"] / 1024**2:.0f} MB'
         else:
             filesize = ''
-        
+
         # extract information about audio media
         if f['acodec'] != 'none':
             key = f'{f["ext"]}@{f["abr"]:.0f}{filesize}'
@@ -26,7 +26,7 @@ def main():
                 'url': f['url'],
                 'ext': f['ext'],
             }
-            
+
         # extract information about video media
         if f['acodec'] != 'none' and f['vcodec'] != 'none':
             key = f'{f["width"]}x{f["height"]}.{f["ext"]}@{f["tbr"]:.0f}{filesize}'
@@ -34,7 +34,7 @@ def main():
                 'url': f['url'],
                 'ext': f['ext'],
             }
-            
+
     print(f)
 
     # return dicts back to shortcuts
@@ -46,6 +46,7 @@ def main():
         url += f'&audio={quote(json.dumps(audio))}'
         url += f'&video={quote(json.dumps(video))}'
         webbrowser.open(url)
+
 
 if __name__ == '__main__':
     main()
